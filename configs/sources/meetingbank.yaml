@@ -1,0 +1,14 @@
+# MeetingBank: deep full-text transcripts for six city councils.
+# Rows are agenda segments with a composite uid, so this source uses the
+# meetingbank_segments mapper (the documented escape hatch) rather than a
+# pure field_map.
+loader:
+  type: huggingface_streaming
+  dataset: huuuyeah/meetingbank
+  split: train
+  sample_size: 200
+
+mapper:
+  type: meetingbank_segments
+
+source_url: https://meetingbank.github.io/

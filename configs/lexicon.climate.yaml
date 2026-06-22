@@ -1,0 +1,113 @@
+# Climate-action lexicon (topic config).
+#
+# This file IS the topic definition. Swapping it for a housing or wildfire
+# lexicon retargets the whole pipeline with no code change, which is the
+# core of the Part II multi-lab story. It is deliberately readable so a
+# domain expert (Professor Rodriguez) can audit and tune the terms.
+#
+# Matching is phrase-based and case-insensitive. A sentence is scored by the
+# specific climate phrases it contains. Procedural and weak terms are handled
+# so routine council motions do not get tagged as climate action.
+
+topic: climate
+
+# Strong, specific phrases. A match here is high confidence.
+adaptation_strong:
+  - floodplain
+  - flood control
+  - flood management
+  - levee
+  - levy improvement
+  - sea wall
+  - seawall
+  - sea level rise
+  - stormwater management
+  - cooling center
+  - extreme heat
+  - heat wave
+  - wildfire
+  - defensible space
+  - drought contingency
+  - hazard mitigation plan
+  - climate adaptation
+  - climate resilience
+  - resiliency
+  - managed retreat
+  - flood zone
+  - flood plain
+
+mitigation_strong:
+  - greenhouse gas
+  - ghg emissions
+  - emissions reduction
+  - reduce emissions
+  - emissions control
+  - electric vehicle
+  - electric bus
+  - electric buses
+  - zero emission
+  - transit fleet
+  - fleet electrification
+  - ev charging
+  - charging station
+  - solar
+  - photovoltaic
+  - renewable energy
+  - clean energy
+  - building electrification
+  - heat pump
+  - energy efficiency
+  - net zero
+  - carbon neutral
+  - carbon emissions
+  - climate action plan
+  - composting
+  - waste diversion
+  - recycling
+  - methane
+
+# Phrases that signal either or both; treated as climate-relevant but generic.
+climate_generic:
+  - climate change
+  - climate action
+  - sustainability
+  - sustainable communities
+  - green new deal
+  - office of climate
+
+# Weak / ambiguous: count only when paired with a climate_generic or strong
+# term in the same sentence (transit and bike lanes are often non-climate).
+weak_context:
+  - public transit
+  - transit corridor
+  - bike lane
+  - bicycle
+  - pedestrian
+  - tree canopy
+  - urban forest
+
+# Hazard tagging for adaptation actions. First match wins, in this order.
+hazards:
+  sea_level_rise: [sea level, sea wall, seawall, coastal flood]
+  flood: [flood, levee, levy, stormwater, freeboard]
+  wildfire: [wildfire, defensible space, fire risk]
+  heat: [extreme heat, heat wave, cooling center, extreme cold]
+  drought: [drought]
+  storm: [storm surge, hurricane, severe storm]
+
+# Procedural noise. If a sentence matches these and has no strong/generic
+# climate phrase, it is unrelated regardless of weak terms.
+procedural:
+  - clerk file
+  - postpone
+  - strike the
+  - replace with
+  - on page
+  - effective date
+  - rules of procedure
+  - move to
+  - i move
+  - the motion carries
+  - amended in the following
+  - held in committee
+  - technical fix

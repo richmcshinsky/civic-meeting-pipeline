@@ -1,0 +1,69 @@
+{
+  "golden_items": 130,
+  "matched_to_predictions": 127,
+  "per_category": {
+    "adaptation": {
+      "precision": 0.139,
+      "recall": 1.0,
+      "f1": 0.244,
+      "support": 5
+    },
+    "mitigation": {
+      "precision": 0.14,
+      "recall": 0.778,
+      "f1": 0.237,
+      "support": 9
+    },
+    "both": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 4
+    },
+    "unrelated": {
+      "precision": 1.0,
+      "recall": 0.193,
+      "f1": 0.323,
+      "support": 109
+    }
+  },
+  "macro_f1": 0.201,
+  "accuracy": 0.26,
+  "human_vs_model_cohen_kappa": 0.091,
+  "kappa_note": "Agreement between annotator labels and model predictions, not inter-annotator agreement.",
+  "confidence_calibration": [
+    {
+      "bin": "0.0-0.5",
+      "n": 17,
+      "empirical_accuracy": 0.941
+    },
+    {
+      "bin": "0.5-0.7",
+      "n": 8,
+      "empirical_accuracy": 0.25
+    },
+    {
+      "bin": "0.7-0.9",
+      "n": 57,
+      "empirical_accuracy": 0.14
+    },
+    {
+      "bin": "0.9-1.0",
+      "n": 45,
+      "empirical_accuracy": 0.156
+    }
+  ],
+  "hazard_accuracy_exploratory": {
+    "flood": {
+      "correct": 4,
+      "support": 4,
+      "accuracy": 1.0
+    },
+    "other": {
+      "correct": 0,
+      "support": 1,
+      "accuracy": 0.0
+    }
+  },
+  "hazard_note": "Exploratory only; small per-class support."
+}

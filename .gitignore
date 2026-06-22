@@ -1,0 +1,35 @@
+# Generated data. Crosswalk and golden set are committed (see below).
+data/raw/
+data/interim/
+data/processed/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Environment and secrets
+.env
+.env.*
+
+# OS and editors
+.DS_Store
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Keep committed data even though data/ subdirs are ignored
+!data/crosswalks/
+!data/crosswalks/**
+!data/golden/
+!data/golden/**
+
+# But do not commit the large raw NRI download or failed/raw geo files.
+# Only the slimmed nri_county_slim.csv and fips_crosswalk.csv are committed.
+data/crosswalks/NRI_Table_Counties.csv
+data/crosswalks/nri_counties.csv
+data/crosswalks/place_county_rel.txt
+data/crosswalks/place2county.txt

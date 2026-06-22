@@ -1,0 +1,7 @@
+jurisdiction_name,state,fips,fips_type
+Alameda,CA,0600562,place
+Boston,MA,2507000,place
+Denver,CO,0820000,place
+Long Beach,CA,0643000,place
+King County,WA,53033,county
+Seattle,WA,5363000,place

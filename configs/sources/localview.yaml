@@ -1,0 +1,52 @@
+# LocalView: broad coverage across thousands of mid-size places.
+# A standard tabular source, so it is expressed entirely as configuration:
+# the generic_tabular mapper plus a field_map. Adding a similar source needs
+# only a file like this, no new code.
+loader:
+  type: dataverse_parquet
+  years: [2014]
+  columns:
+    - st_fips
+    - state_name
+    - place_name
+    - place_govt
+    - meeting_date
+    - caption_text_clean
+    - vid_id
+  file_ids:
+    "2006": 7464720
+    "2007": 7464726
+    "2008": 7464727
+    "2009": 7464728
+    "2010": 7464729
+    "2011": 7464730
+    "2012": 7464731
+    "2013": 7464732
+    "2014": 7464733
+    "2015": 7464734
+    "2016": 7464735
+    "2017": 7464757
+    "2018": 7464759
+    "2019": 7464760
+    "2020": 7464769
+    "2021": 7464770
+    "2022": 7464771
+    "2023": 7464772
+
+mapper:
+  type: generic_tabular
+
+sample:
+  strategy: group_preserving
+  group_keys: [st_fips, meeting_date, place_govt]
+  size: 200
+
+field_map:
+  jurisdiction_fips: {copy: st_fips}
+  jurisdiction_name: {copy: place_name}
+  state: {state_abbrev: state_name}
+  meeting_date: {parse_date: {column: meeting_date, format: iso}}
+  meeting_type: {meeting_type_from_govt: place_govt}
+  transcript: {clean_text: {column: caption_text_clean, missing: "<no caption available>"}}
+  source_url: {template: "https://www.youtube.com/watch?v={vid_id}"}
+  source_record_id: {copy: vid_id}

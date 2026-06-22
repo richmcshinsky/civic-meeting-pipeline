@@ -212,8 +212,8 @@ def part1(data: dict) -> None:
         if lex.get("per_category") and llm.get("per_category"):
             lf = {k: v["f1"] for k, v in lex["per_category"].items()}
             mf = {k: v["f1"] for k, v in llm["per_category"].items()}
-            st.caption("F1 by category: lexicon vs LLM")
-            st.bar_chart(pd.DataFrame({"lexicon": lf, "LLM": mf}))
+            st.caption("F1 by category: lexicon vs LLM (higher is better, max 1.0)")
+            st.bar_chart(pd.DataFrame({"lexicon": lf, "LLM": mf}), stack=False)
             st.caption("The LLM beats the lexicon only on the rare 'both' "
                        "category, which is exactly where the lexicon is weakest. "
                        "That is the concrete case for combining them.")
@@ -250,7 +250,12 @@ def part1(data: dict) -> None:
                     hover_data=["meetings", "climate_actions"],
                     labels={"actions_per_meeting": "actions / meeting"},
                 )
-                fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), height=380)
+                fig.update_layout(
+                    margin=dict(l=0, r=0, t=0, b=0), height=380,
+                    paper_bgcolor="rgba(0,0,0,0)",
+                    geo=dict(bgcolor="rgba(0,0,0,0)", lakecolor="rgba(0,0,0,0)"),
+                    font_color="#cccccc",
+                )
                 st.plotly_chart(fig, use_container_width=True)
                 st.caption("Shaded states are where we have coverage; white states "
                            "are gaps. Color is climate-action intensity per meeting.")

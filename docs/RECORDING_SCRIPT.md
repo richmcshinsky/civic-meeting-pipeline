@@ -28,14 +28,18 @@ is what makes Part II real. Second, deduplication links overlapping records and
 keeps provenance rather than collapsing them, with conflicts sent to a review
 table. Then the sources: MeetingBank and LocalView used, and why the other three
 were not (CDP decommissioned, Hamlet's terms forbid redistribution, data.gov is
-a registry). Close on the coverage chart: coverage is uneven by design, so
-everything is reported as "among covered jurisdictions".
+a registry). There's a full coverage breakdown by region and source in the app
+for you to explore after.
 
 ## 3:00 - 5:30  Methods and evaluation (Part I, tab 2)
 
 "I did not just run an LLM. I compared two methods on a hand-labeled set of 130
-excerpts." Show the two accuracy numbers: lexicon about 95 percent, kappa 0.82;
-zero-shot LLM about 81 percent, kappa 0.48.
+excerpts." Kappa measures agreement above chance, where 1.0 is perfect and 0.0
+is chance, so the contrast between 0.82 and 0.48 is large. Show the two accuracy
+numbers: lexicon about 95 percent, kappa 0.82; zero-shot LLM about 81 percent,
+kappa 0.48. This is human-vs-model agreement, not full inter-annotator
+agreement; a publication-ready validation would require a second annotator and a
+measured IAA score.
 
 Then the F1-by-category chart: the LLM only wins on the rare 'both' class, which
 is exactly where the lexicon is weakest, so the recommendation is evidence
@@ -57,10 +61,12 @@ is directional. Time: the trend line.
 ## 8:00 - 9:00  Reproducibility and close
 
 "The whole thing reproduces with make setup and make all on a fresh clone, and
-ships a versioned dataset other researchers can reuse." State the limitations
+ships a versioned dataset other researchers can reuse." Add: "This isn't a
+notebook, it's a proper pip-installable package with a CLI and tests, so another
+lab can adopt it without reading the pipeline code." State the limitations
 plainly: coverage skew, intensity confounded by transcript depth, small-n
-exposure. Close: "The lexicon and the config-driven design are also what make
-this reusable for other labs, which is Part II."
+exposure. Close: "The same config-driven design that makes this reproducible is
+also what makes it a platform, which is what I'll walk through at the interview."
 
 ## Tips
 

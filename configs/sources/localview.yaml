@@ -4,7 +4,7 @@
 # only a file like this, no new code.
 loader:
   type: dataverse_parquet
-  years: [2014]
+  years: [2014]  # demo sample only; expand to full range [2006,2007,...,2023] for production
   columns:
     - st_fips
     - state_name

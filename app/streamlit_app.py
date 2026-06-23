@@ -17,7 +17,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-REPO_URL = "https://github.com/richmcshinsky/yale-yse-meeting-pipeline"
+REPO_URL = "https://github.com/richmcshinsky/civic-meeting-pipeline"
 
 st.set_page_config(page_title="Municipal Climate Action | YSE", layout="wide")
 

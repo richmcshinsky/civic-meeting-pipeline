@@ -24,6 +24,8 @@ Live walkthrough: run `make app` (or the deployed Streamlit link in the repo).
 
 ## How it runs
 
+Live app: https://civic-meeting-pipeline.streamlit.app
+
 On a fresh clone:
 
 ```
